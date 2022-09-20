@@ -2,11 +2,11 @@ from django.urls import path
 
 from .views import *
 
-urlpatterns = {
-    path('', MainPageView.as_view()),
-    path('login.html/', LoginPageView.as_view()),
-    path('doc_site.html/', DocSitePageView.as_view()),
-    path('contacts.html/', ContactsPageView.as_view()),
-    path('courses_list.html', CoursesPageView.as_view()),
-    path('news.html/', NewsPageView.as_view())
-}
+urlpatterns = [
+    path('', MainPageView.as_view(), name='index'),
+    path('login/', LoginPageView.as_view(), name='login'),
+    path('doc_site/', DocSitePageView.as_view(), name='doc_site'),
+    path('contacts/', ContactsPageView.as_view(), name='contacts'),
+    path('courses_list/', CoursesPageView.as_view(), name='courses_list'),
+    path('news/', NewsPageView.as_view(), name='news')
+]
