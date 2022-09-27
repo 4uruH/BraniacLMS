@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 {% load static %}
+{% load text_to_link %}
 
     {% include 'mainapp/components/top_nav_panel.html' %}
 
@@ -11,51 +12,25 @@
 <div class="row">
 
   <div class="col-lg-8">
-    
-    <div class="card my-2">
-      <div class="card-body">
-        <h5 class="card-title">Новость</h5>
-        <h6 class="card-subtitle mb-2 text-muted">2021-04-29 20-50-26</h6>
-        <p class="card-text">Предварительное описание новости</p>
-        <a href="#" class="card-link">Подробнее</a>
-      </div>
-    </div>
-    
-    <div class="card my-2">
-      <div class="card-body">
-        <h5 class="card-title">Новость</h5>
-        <h6 class="card-subtitle mb-2 text-muted">2021-04-28 20-50-26</h6>
-        <p class="card-text">Предварительное описание новости</p>
-        <a href="#" class="card-link">Подробнее</a>
-      </div>
-    </div>
-    
-    <div class="card my-2">
-      <div class="card-body">
-        <h5 class="card-title">Новость</h5>
-        <h6 class="card-subtitle mb-2 text-muted">2021-04-27 20-50-26</h6>
-        <p class="card-text">Предварительное описание новости</p>
-        <a href="#" class="card-link">Подробнее</a>
-      </div>
-    </div>
-    
-    <div class="card my-2">
-      <div class="card-body">
-        <h5 class="card-title">Новость</h5>
-        <h6 class="card-subtitle mb-2 text-muted">2021-04-26 20-50-26</h6>
-        <p class="card-text">Предварительное описание новости</p>
-        <a href="#" class="card-link">Подробнее</a>
-      </div>
-    </div>
-    
-    <div class="card mt-2">
-      <div class="card-body">
-        <h5 class="card-title">Новость</h5>
-        <h6 class="card-subtitle mb-2 text-muted">2021-04-25 20-50-26</h6>
-        <p class="card-text">Предварительное описание новости</p>
-        <a href="#" class="card-link">Подробнее</a>
-      </div>
-    </div>
+    {% for news, description in news_title_description.items  %}
+        <div class="card my-2">
+          <div class="card-body">
+            <h5 class="card-title">{{ news }}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{ news_date|date:"Y-m-d h:i:s" }}</h6>
+            <p class="card-text">{{ description }}</p>
+            <a href="#" class="card-link">Подробнее</a>
+          </div>
+        </div>
+    {% endfor %}
+
+        <div class="card mt-2">
+          <div class="card-body">
+            <h5 class="card-title">Новость</h5>
+            <h6 class="card-subtitle mb-2 text-muted">2021-04-25 20-50-26</h6>
+            <p class="card-text">{{ 'какой то текс поищем в ядексе'|text_to_link }}</p>
+            <a href="#" class="card-link">Подробнее</a>
+          </div>
+        </div>
     
   </div>
 
