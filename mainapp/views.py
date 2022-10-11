@@ -23,13 +23,8 @@ class NewsPageView(TemplateView):
         context = super().get_context_data(**kwargs)
 
         context["page"] = page
-        context["news"] = models.News.objects.all()
 
         return context
-
-
-class LoginPageView(TemplateView):
-    template_name = 'login.html'
 
 
 class ContactsPageView(TemplateView):
