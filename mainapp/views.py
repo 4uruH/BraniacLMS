@@ -1,6 +1,8 @@
+from django.shortcuts import get_object_or_404
 from django.views.generic import TemplateView
-from datetime import datetime
-import json
+
+from mainapp import models
+from django.core.paginator import Paginator
 
 
 class MainPageView(TemplateView):
@@ -9,22 +11,20 @@ class MainPageView(TemplateView):
 
 class NewsPageView(TemplateView):
     template_name = 'news.html'
+    paginated_by = 3
 
     def get_context_data(self, **kwargs):
+        page_number = self.request.GET.get(
+            'page',
+            1
+        )
+        paginator = Paginator(models.News.objects.all(), self.paginated_by)
+        page = paginator.get_page(page_number)
         context = super().get_context_data(**kwargs)
 
-        with open("data_file.json", 'r') as file:
-            context['news_title_description'] = json.load(file)
-        # context['news_title'] = data.keys
-        # context['description'] = data
-        context['news_date'] = datetime.now()
-        context['range'] = range(5)
+        context["page"] = page
 
         return context
-
-
-class LoginPageView(TemplateView):
-    template_name = 'login.html'
 
 
 class ContactsPageView(TemplateView):
@@ -37,3 +37,38 @@ class DocSitePageView(TemplateView):
 
 class CoursesPageView(TemplateView):
     template_name = 'courses_list.html'
+
+
+class NewsPageDetailView(TemplateView):
+    template_name = "news_detail.html"
+
+    def get_context_data(self, pk=None, **kwargs):
+        context = super().get_context_data(pk=pk, **kwargs)
+        context["news_object"] = get_object_or_404(models.News, pk=pk)
+        return context
+
+
+class CoursesListView(TemplateView):
+    template_name = "courses_list.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(CoursesListView, self).get_context_data(**kwargs)
+        context["objects"] = models.Courses.objects.all()[:7]
+        return context
+
+
+class CoursesDetailView(TemplateView):
+    template_name = "courses_detail.html"
+
+    def get_context_data(self, pk=None, **kwargs):
+        context = super(CoursesDetailView, self).get_context_data(**kwargs)
+        context["course_object"] = get_object_or_404(
+            models.Courses, pk=pk
+        )
+        context["lessons"] = models.Lesson.objects.filter(
+            course=context["course_object"]
+        )
+        context["teachers"] = models.CourseTeachers.objects.filter(
+            course=context["course_object"]
+        )
+        return context

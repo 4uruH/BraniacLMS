@@ -21,7 +21,9 @@
 
 <body>
 
-
+    {% block message %}
+    {% include 'includes/messages.html' %}
+    {% endblock message %}
 
     {% block content %}
 
@@ -36,11 +38,24 @@
     <script src="{% static "js/bootstrap.min.js" %}></script>
 
     <!-- ChartJs -->
-    <script src="{% static "js/Chart.min.js" %}"></script>
+    <script src="{% static 'js/Chart.min.js' %}></script>
 
     <!-- FontAwesome -->
     <script src="{% static "js/fontawesome.all.min.js" %}"></script>
 
+{% block js %}
+    <script>
+        $(document).ready(function () {
+
+        {% if messages %}
+        // Toasts
+        $(".toast").toast({ delay: 5000 });
+        $(".toast").toast("show");
+        {% endif %}
+
+        });
+    </script>
+{% endblock js %}
 
 
 </body>
