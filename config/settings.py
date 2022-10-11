@@ -40,7 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'markdownify.apps.MarkdownifyConfig',
-    'mainapp'
+    'social_django',
+    'mainapp',
+    'authapp'
 ]
 
 MIDDLEWARE = [
@@ -64,8 +66,12 @@ TEMPLATES = [
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
+                'django.template.context_processors.media',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                "social_django.context_processors.backends",
+                "social_django.context_processors.login_redirect",
+
             ],
         },
     },
@@ -103,6 +109,21 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTH_USER_MODEL = "authapp.CustomUser"
+
+LOGIN_REDIRECT_URL = "mainapp:main"
+LOGOUT_REDIRECT_URL = "mainapp:main"
+
+AUTHENTICATION_BACKENDS = (
+    "social_core.backends.github.GithubOAuth2",
+    "social_core.backends.facebook.FacebookOAuth2",
+    "social_core.backends.vk.VKOAuth2",
+    "django.contrib.auth.backends.ModelBackend"
+
+)
+
+
+MESSAGE_STORAGE = "django.contrib.messages.storage.session.SessionStorage"
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
@@ -125,3 +146,17 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+#Media files
+
+MEDIA_URL = "/media/"
+MEDIA_ROOT = BASE_DIR / "media"
+
+SOCIAL_AUTH_GITHUB_KEY = "02b342edbe931557951d"
+SOCIAL_AUTH_GITHUB_SECRET = "6a6059b8c4d2e7285b932bbd1c80c423f50fdcb8"
+
+SOCIAL_AUTH_FACEBOOK_KEY = "1186030638648592"
+SOCIAL_AUTH_FACEBOOK_SECRET = "d806986027f875d3f42c237fd16e4edf"
+
+SOCIAL_AUTH_VK_KEY = "FtZSGkzhJcqlLP4zkzhi"
+SOCIAL_AUTH_VK_SECRET = "e300d8e8e300d8e8e300d8e8c0e011da54ee300e300d8e88045986f6bc779549f4661f4"
