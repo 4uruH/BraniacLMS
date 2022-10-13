@@ -41,8 +41,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'markdownify.apps.MarkdownifyConfig',
     'social_django',
+    'crispy_forms',
     'mainapp',
-    'authapp'
+    'authapp',
+    'rangefilter'
 ]
 
 MIDDLEWARE = [
@@ -160,3 +162,5 @@ SOCIAL_AUTH_FACEBOOK_SECRET = "d806986027f875d3f42c237fd16e4edf"
 
 SOCIAL_AUTH_VK_KEY = "FtZSGkzhJcqlLP4zkzhi"
 SOCIAL_AUTH_VK_SECRET = "e300d8e8e300d8e8e300d8e8c0e011da54ee300e300d8e88045986f6bc779549f4661f4"
+
+CRISPY_TEMPLATE_PACK = "bootstrap4" #показывает какой ЦСС стиль используется
