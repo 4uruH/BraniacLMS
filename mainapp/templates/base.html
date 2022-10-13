@@ -24,7 +24,7 @@
 </head>
 
 <body>
-
+    {% include 'mainapp/components/top_nav_panel.html' %}
     {% block message %}
     {% include 'includes/messages.html' %}
     {% endblock message %}
@@ -33,19 +33,23 @@
 
     {% endblock content %}
 
-
+    {% include 'mainapp/components/footer.html' %}
 
     <!-- JavaScript section -->
     <!-- Bootstrap -->
+
     <script src="{% static "js/jquery-3.6.0.min.js" %}"></script>
     <script src="{% static "js/popper.min.js" %}"></script>
-    <script src="{% static "js/bootstrap.min.js" %}></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
 
     <!-- ChartJs -->
-    <script src="{% static 'js/Chart.min.js' %}></script>
-
+    <script src="{% static 'js/Chart.min.js' %}"></script>
     <!-- FontAwesome -->
-    <script src="{% static "js/fontawesome.all.min.js" %}"></script>
+    <script src="{% static 'js/fontawesome.all.min.js' %}"></script>
+
+
+
 
 {% block js %}
     <script>

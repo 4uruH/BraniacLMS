@@ -56,12 +56,8 @@ class DocSitePageView(generic.TemplateView):
     template_name = 'doc_site.html'
 
 
-class CoursesPageView(generic.TemplateView):
-    template_name = 'courses_list.html'
-
-
 class CoursesListView(generic.TemplateView):
-    template_name = "courses_list.html"
+    template_name = "mainapp/courses_list.html"
 
     def get_context_data(self, **kwargs):
         context = super(CoursesListView, self).get_context_data(**kwargs)
