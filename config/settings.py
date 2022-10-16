@@ -17,7 +17,6 @@ from django.conf.global_settings import STATICFILES_DIRS
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
@@ -27,8 +26,13 @@ SECRET_KEY = 'django-insecure-+s#zvbxyp*llbd7lp4(zq(z$0)8pdj80#y@&p&r_*rmhj7o#k2
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
+if DEBUG:
+    INTERNAL_IPS = [
+        "192.168.1.4",
+        "127.0.0.1",
+    ]
 
 # Application definition
 
@@ -44,7 +48,8 @@ INSTALLED_APPS = [
     'crispy_forms',
     'mainapp',
     'authapp',
-    'rangefilter'
+    'rangefilter',
+    'debug_toolbar'
 ]
 
 MIDDLEWARE = [
@@ -55,6 +60,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware'
 ]
 
 ROOT_URLCONF = 'config.urls'
@@ -81,7 +87,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'config.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
@@ -91,7 +96,6 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -124,7 +128,6 @@ AUTHENTICATION_BACKENDS = (
 
 )
 
-
 MESSAGE_STORAGE = "django.contrib.messages.storage.session.SessionStorage"
 
 # Internationalization
@@ -138,7 +141,6 @@ USE_I18N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
@@ -149,10 +151,12 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-#Media files
+# Media files
 
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
+
+# внешняя авторизация
 
 SOCIAL_AUTH_GITHUB_KEY = "02b342edbe931557951d"
 SOCIAL_AUTH_GITHUB_SECRET = "6a6059b8c4d2e7285b932bbd1c80c423f50fdcb8"
@@ -163,4 +167,70 @@ SOCIAL_AUTH_FACEBOOK_SECRET = "d806986027f875d3f42c237fd16e4edf"
 SOCIAL_AUTH_VK_KEY = "FtZSGkzhJcqlLP4zkzhi"
 SOCIAL_AUTH_VK_SECRET = "e300d8e8e300d8e8e300d8e8c0e011da54ee300e300d8e88045986f6bc779549f4661f4"
 
-CRISPY_TEMPLATE_PACK = "bootstrap4" #показывает какой ЦСС стиль используется
+# показывает какой ЦСС стиль используется
+
+CRISPY_TEMPLATE_PACK = "bootstrap4"
+
+# логирование
+
+LOG_FILE = BASE_DIR / "var" / "log" / "main_log.log"
+
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "formatters": {
+        "console": {
+            "format": "[%(asctime)s] %(levelname)s %(name)s (%(lineno)d) %(message)s"
+        },
+    },
+    "handlers": {
+        "file": {
+            "level": "DEBUG",
+            "class": "logging.FileHandler",
+            "filename": LOG_FILE,
+            "formatter": "console",
+        },
+        "console": {"class": "logging.StreamHandler", "formatter": "console"},
+    },
+    "loggers": {
+        "django": {"level": "INFO", "handlers": ["file", "console"]},
+        "mainapp": {
+            "level": "DEBUG",
+            "handlers": ["file"],
+        }
+    },
+}
+
+# КЭШ
+
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "redis://127.0.0.1:6379",
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+        },
+    }
+}
+
+# отложеные задачи
+
+CELERY_BROKER_URL = "redis://localhost:6379"
+CELERY_RESULT_BACKEND = "redis://localhost:6379"
+
+# Read about sending email:
+# https://docs.djangoproject.com/en/3.2/topics/email/
+# Full list of email settings:
+# https://docs.djangoproject.com/en/3.2/ref/settings/#email
+# EMAIL_HOST = "localhost"
+# EMAIL_PORT = "25"
+# For debugging: python -m smtpd -n -c DebuggingServer localhost:25
+# EMAIL_HOST_USER = "django@geekshop.local"
+# EMAIL_HOST_PASSWORD = "geekshop"
+# EMAIL_USE_SSL = False
+# If server support TLS:
+# EMAIL_USE_TLS = True
+# Email as files for debug
+EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
+EMAIL_FILE_PATH = "var/email-messages/"
+
