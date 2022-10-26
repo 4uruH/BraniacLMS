@@ -1,0 +1,334 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-10-25 12:48+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
+"%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: .\authapp\forms.py:59
+msgid "Please, enter a valid age!"
+msgstr "Пожалуйста введите жопустимый возраст"
+
+#: .\authapp\models.py:23
+msgid "username"
+msgstr "Имя пользователя"
+
+#: .\authapp\models.py:27
+msgid "Required. 150 characters or fewer. ASCII letters and digits only."
+msgstr "Доступны 150 символов. буквы и цифры из библеотеки ASCII"
+
+#: .\authapp\models.py:30
+msgid "A user with that username already exists"
+msgstr "Имя пользователя уже занято"
+
+#: .\authapp\models.py:34
+msgid "first name"
+msgstr "Имя"
+
+#: .\authapp\models.py:39
+msgid "last name"
+msgstr "Фамилия"
+
+#: .\authapp\models.py:56
+msgid "A user with that email address already exists"
+msgstr "Имейл уже использорвался при регистрации другого пользователя"
+
+#: .\authapp\models.py:60
+msgid "staff status"
+msgstr ""
+
+#: .\authapp\models.py:62
+msgid "Designates whether the user can log into this admin site."
+msgstr ""
+
+#: .\authapp\models.py:65
+msgid "active"
+msgstr "Активно"
+
+#: .\authapp\models.py:67
+msgid ""
+"Designates whether this user should be treated as "
+"active.                     Unselect this instead of deleting accounts."
+msgstr ""
+
+#: .\authapp\models.py:71
+msgid "date joined"
+msgstr "Дата присоединения"
+
+#: .\authapp\models.py:82
+msgid "user"
+msgstr "Пользователь"
+
+#: .\authapp\models.py:83
+msgid "users"
+msgstr "Пользователи"
+
+#: .\authapp\templates\registration\login.html:33
+msgid "User Login"
+msgstr "Входя пользователя"
+
+#: .\authapp\templates\registration\login.html:51
+#: .\mainapp\templates\mainapp\components\top_nav_panel.html:51
+msgid "Login"
+msgstr "Вход"
+
+#: .\authapp\templates\registration\login.html:57
+msgid "Registration"
+msgstr "Регистрация"
+
+#: .\authapp\templates\registration\login.html:60
+msgid "Forgot your password?"
+msgstr "Забыли пароль?"
+
+#: .\authapp\templates\registration\login.html:64
+msgid "Login from social networks"
+msgstr "Вход через социальные сети"
+
+#: .\authapp\templates\registration\profile_edit.html:7
+msgid "Profile edit"
+msgstr "Редактирование профиля"
+
+#: .\authapp\templates\registration\profile_edit.html:70
+msgid "Save"
+msgstr "Сохранить"
+
+#: .\authapp\templates\registration\register.html:7
+msgid "Registration of a new user"
+msgstr "Регистрация нового пользователя"
+
+#: .\authapp\templates\registration\register.html:80
+msgid "Register now"
+msgstr "Зарегистрироваться"
+
+#: .\authapp\views.py:18
+#, python-format
+msgid "Login success!<br>Hi, %(username)s "
+msgstr "Вход успешен!"
+
+#: .\authapp\views.py:39
+msgid "See you later!"
+msgstr "Заходите еще"
+
+#: .\mainapp\admin.py:25 .\mainapp\models.py:177
+msgid "Course"
+msgstr "Курс"
+
+#: .\mainapp\admin.py:30
+msgid "Mark deleted"
+msgstr "Отметить удаленым"
+
+#: .\mainapp\forms.py:29
+msgid "Enter your message"
+msgstr "Введите ваше сообщение"
+
+#: .\mainapp\forms.py:30
+msgid "Message"
+msgstr "Сообщение"
+
+#: .\mainapp\models.py:50 .\mainapp\models.py:51
+#: .\mainapp\templates\mainapp\components\footer.html:14
+#: .\mainapp\templates\mainapp\components\top_nav_panel.html:19
+msgid "News"
+msgstr "Новости"
+
+#: .\mainapp\models.py:180
+msgid "User"
+msgstr "Пользователь"
+
+#: .\mainapp\models.py:183
+msgid "No feedback"
+msgstr "Отзывов нет"
+
+#: .\mainapp\models.py:183 .\mainapp\templates\mainapp\courses_detail.html:103
+msgid "Feedback"
+msgstr "Отзыв"
+
+#: .\mainapp\models.py:186
+msgid "Rating"
+msgstr "Рейтинг"
+
+#: .\mainapp\templates\mainapp\components\footer.html:13
+msgid "Homepage"
+msgstr "Домашняя страница"
+
+#: .\mainapp\templates\mainapp\components\footer.html:16
+#: .\mainapp\templates\mainapp\components\top_nav_panel.html:46
+msgid "Logout"
+msgstr "Выход"
+
+#: .\mainapp\templates\mainapp\components\footer.html:18
+msgid "login"
+msgstr "Вход"
+
+#: .\mainapp\templates\mainapp\components\footer.html:25
+msgid "Useful"
+msgstr "Полезное"
+
+#: .\mainapp\templates\mainapp\components\footer.html:31
+msgid "API Documentation"
+msgstr "Документация API"
+
+#: .\mainapp\templates\mainapp\components\footer.html:32
+msgid "Site documentation"
+msgstr "Документация Сайта"
+
+#: .\mainapp\templates\mainapp\components\footer.html:38
+msgid "We in social networks"
+msgstr "Мы в социальных сетях"
+
+#: .\mainapp\templates\mainapp\components\top_nav_panel.html:24
+#: .\mainapp\templates\mainapp\courses_list.html:6
+msgid "Courses"
+msgstr "Курсы"
+
+#: .\mainapp\templates\mainapp\components\top_nav_panel.html:31
+msgid "Profile"
+msgstr "Профайл"
+
+#: .\mainapp\templates\mainapp\components\top_nav_panel.html:34
+msgid "Edit Profile"
+msgstr "Редактировать профайл"
+
+#: .\mainapp\templates\mainapp\components\top_nav_panel.html:35
+msgid "My Courses"
+msgstr "Мои курсы"
+
+#: .\mainapp\templates\mainapp\components\top_nav_panel.html:37
+msgid "Moderation"
+msgstr "Модерация"
+
+#: .\mainapp\templates\mainapp\components\top_nav_panel.html:40
+msgid "Admin site"
+msgstr "Админка"
+
+#: .\mainapp\templates\mainapp\components\top_nav_panel.html:42
+msgid "Log"
+msgstr "Логи"
+
+#: .\mainapp\templates\mainapp\components\top_nav_panel.html:55
+msgid "Contacts"
+msgstr "Контакты"
+
+#: .\mainapp\templates\mainapp\courses_detail.html:26
+msgid "Teachers"
+msgstr "Преподаватели"
+
+#: .\mainapp\templates\mainapp\courses_detail.html:41
+#: .\mainapp\templates\mainapp\courses_detail.html:53
+msgid "Cost"
+msgstr "Стоимость"
+
+#: .\mainapp\templates\mainapp\courses_detail.html:46
+#: .\mainapp\templates\mainapp\courses_detail.html:58
+msgid "buy now"
+msgstr "Купить!"
+
+#: .\mainapp\templates\mainapp\courses_detail.html:111
+msgid "No feedback yet. Be first!"
+msgstr "У вас пока нет отзывов"
+
+#: .\mainapp\templates\mainapp\courses_detail.html:118
+msgid "Add feedback"
+msgstr "Добавить отзыв"
+
+#: .\mainapp\templates\mainapp\courses_detail.html:119
+msgid "No feedback yet!"
+msgstr "Отзывов пока нет"
+
+#: .\mainapp\templates\mainapp\courses_detail.html:127
+msgid "send"
+msgstr "отправить"
+
+#: .\mainapp\templates\mainapp\courses_list.html:33
+#: .\mainapp\templates\mainapp\news_list.html:96
+msgid "Previous"
+msgstr "Пердыдущая"
+
+#: .\mainapp\templates\mainapp\courses_list.html:37
+#: .\mainapp\templates\mainapp\news_list.html:107
+msgid "Next"
+msgstr "Следующая"
+
+#: .\mainapp\templates\mainapp\log_view.html:7
+msgid "Download"
+msgstr "Загрузить"
+
+#: .\mainapp\templates\mainapp\news_confirm_delete.html:6
+#: .\mainapp\templates\mainapp\news_confirm_delete.html:8
+msgid "Mark news as deleted"
+msgstr "Пометить новость как удаленую"
+
+#: .\mainapp\templates\mainapp\news_confirm_delete.html:18
+msgid "Confirm"
+msgstr "Подтвердить"
+
+#: .\mainapp\templates\mainapp\news_confirm_delete.html:23
+msgid "Cancel"
+msgstr "Отмена"
+
+#: .\mainapp\templates\mainapp\news_detail.html:17
+msgid "Back"
+msgstr "Назад"
+
+#: .\mainapp\templates\mainapp\news_form.html:6
+msgid "create/update news"
+msgstr "создать/редактировать новость"
+
+#: .\mainapp\templates\mainapp\news_form.html:16
+msgid "publish"
+msgstr "опубликовать"
+
+#: .\mainapp\templates\mainapp\news_list.html:17
+msgid "Current page"
+msgstr "Текущая страница"
+
+#: .\mainapp\templates\mainapp\news_list.html:35
+msgid "More details"
+msgstr "Детали"
+
+#: .\mainapp\templates\mainapp\news_list.html:61
+msgid "Filters"
+msgstr "Фильтры"
+
+#: .\mainapp\templates\mainapp\news_list.html:67
+msgid "Date from"
+msgstr "От"
+
+#: .\mainapp\templates\mainapp\news_list.html:73
+msgid "Date to"
+msgstr "До"
+
+#: .\mainapp\templates\mainapp\news_list.html:78
+msgid "Do filtration"
+msgstr "Фильтровать"
+
+#: .\mainapp\templates\mainapp\news_list.html:84
+msgid "Add News"
+msgstr "Добавить новость"
+
+#: .\mainapp\views.py:80
+msgid "message send"
+msgstr "сообщение отправлено"
+
+#: .\mainapp\views.py:92
+msgid "You can send only one message per 5 minutes"
+msgstr "Вы можете отправлять только одно сообщение в 5 минут"
+
+#: .\templates\admin\base_site.html:3
+msgid "Django site admin"
+msgstr "Джанго админка"
