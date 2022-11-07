@@ -1,8 +1,9 @@
 {% extends 'base.html' %}
+{% load i18n %}
 {% load crispy_forms_filters %}
 
 {% block title %}
-создание/редактирование новости
+{% translate "create/update news" %}
 {% endblock title %}
 
 {% block content %}
@@ -12,7 +13,7 @@
         {% csrf_token %}
         {{ form|crispy }}
         <button type="submit" class="btn btn-primary
-        btn-block">Опубликовать</button>
+        btn-block">{% translate "publish" %}</button>
         </form>
     </div>
 </div>

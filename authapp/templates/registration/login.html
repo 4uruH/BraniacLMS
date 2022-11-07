@@ -1,3 +1,4 @@
+{% load i18n %}
 <!doctype html>
 <html lang="ru">
 {% load static %}
@@ -29,7 +30,7 @@
                 <a href="{% url 'mainapp:main' %}"><img
                 src="{% static 'img/logo.png' %}" alt=""></a>
             </p>
-            <h2>Вход пользователя</h2>
+            <h2>{% translate "User Login" %}</h2>
             <form method="POST">
 
                 {% csrf_token %}
@@ -47,20 +48,20 @@
                 </p>
                 <p>
                     <button type="submit"
-                        class="btn btn-primary btn-block">Войти</button>
+                        class="btn btn-primary btn-block">{% translate "Login" %}</button>
                 </p>
             </form>
             <p>
             <div class="row justify-content-between">
                 <div class="col">
-                    <a href="{% url 'authapp:register'%}"><small>Регистрация</small></a>
+                    <a href="{% url 'authapp:register'%}"><small>{% translate "Registration" %}</small></a>
                 </div>
                 <div class="col">
-                    <a href="#"><small>Забыли пароль?</small></a>
+                    <a href="#"><small>{% translate "Forgot your password?" %}</small></a>
                 </div>
             </div>
             </p>
-            <h4>Вход через социальные сети</h4>
+            <h4>{% translate "Login from social networks" %}</h4>
             <p>
             <div class="btn-group btn-block" role="group">
                 <a class="btn btn-primary" href="{% url 'social:begin' 'vk' %}" role="button"><i
