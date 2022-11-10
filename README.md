@@ -1,2 +1,3 @@
 # BraniacLMS
-it's an educational project
+News website of an educational project
+Django framework
